@@ -1,0 +1,84 @@
+[
+  {
+    "inputs": [{ "internalType": "address", "name": "token", "type": "address" }],
+    "name": "getTokenV8Safe",
+    "outputs": [
+      {
+        "components": [
+          { "internalType": "uint8", "name": "status", "type": "uint8" },
+          { "internalType": "uint256", "name": "reserve", "type": "uint256" },
+          { "internalType": "uint256", "name": "circulatingSupply", "type": "uint256" },
+          { "internalType": "uint256", "name": "price", "type": "uint256" },
+          { "internalType": "uint8", "name": "tokenVersion", "type": "uint8" },
+          { "internalType": "uint256", "name": "r", "type": "uint256" },
+          { "internalType": "uint256", "name": "h", "type": "uint256" },
+          { "internalType": "uint256", "name": "k", "type": "uint256" },
+          { "internalType": "uint256", "name": "dexSupplyThresh", "type": "uint256" },
+          { "internalType": "address", "name": "quoteTokenAddress", "type": "address" },
+          { "internalType": "bool", "name": "nativeToQuoteSwapEnabled", "type": "bool" },
+          { "internalType": "bytes32", "name": "extensionID", "type": "bytes32" },
+          { "internalType": "uint256", "name": "buyTaxRate", "type": "uint256" },
+          { "internalType": "uint256", "name": "sellTaxRate", "type": "uint256" },
+          { "internalType": "address", "name": "pool", "type": "address" },
+          { "internalType": "uint256", "name": "progress", "type": "uint256" },
+          { "internalType": "uint8", "name": "lpFeeProfile", "type": "uint8" },
+          { "internalType": "uint8", "name": "dexId", "type": "uint8" }
+        ],
+        "internalType": "struct TokenStateV8Safe",
+        "name": "state",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          { "internalType": "address", "name": "inputToken", "type": "address" },
+          { "internalType": "address", "name": "outputToken", "type": "address" },
+          { "internalType": "uint256", "name": "inputAmount", "type": "uint256" }
+        ],
+        "internalType": "struct QuoteExactInputParams",
+        "name": "params",
+        "type": "tuple"
+      }
+    ],
+    "name": "quoteExactInput",
+    "outputs": [{ "internalType": "uint256", "name": "outputAmount", "type": "uint256" }],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          { "internalType": "address", "name": "inputToken", "type": "address" },
+          { "internalType": "address", "name": "outputToken", "type": "address" },
+          { "internalType": "uint256", "name": "inputAmount", "type": "uint256" },
+          { "internalType": "uint256", "name": "minOutputAmount", "type": "uint256" },
+          { "internalType": "bytes", "name": "permitData", "type": "bytes" }
+        ],
+        "internalType": "struct ExactInputParams",
+        "name": "params",
+        "type": "tuple"
+      }
+    ],
+    "name": "swapExactInput",
+    "outputs": [{ "internalType": "uint256", "name": "outputAmount", "type": "uint256" }],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "address", "name": "token", "type": "address" },
+      { "indexed": false, "internalType": "address", "name": "pool", "type": "address" },
+      { "indexed": false, "internalType": "uint256", "name": "amount", "type": "uint256" },
+      { "indexed": false, "internalType": "uint256", "name": "eth", "type": "uint256" }
+    ],
+    "name": "LaunchedToDEX",
+    "type": "event"
+  }
+]

@@ -1,0 +1,32 @@
+{
+  "name": "flap-random-trader",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Experimental BNB Testnet trading bot for Flap bonding-curve tokens and PancakeSwap.",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc -p tsconfig.json && node -e \"require('fs').cpSync('abi','dist/abi',{recursive:true})\"",
+    "start": "node dist/src/index.js",
+    "wallet:check": "tsx scripts/check-wallet.ts",
+    "token:inspect": "tsx scripts/inspect-token.ts",
+    "trade:test": "tsx scripts/test-trade.ts",
+    "stats": "tsx scripts/trade-stats.ts",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ethers": "^6.13.4",
+    "pino": "^9.5.0",
+    "pino-pretty": "^11.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}
